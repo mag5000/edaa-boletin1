@@ -124,15 +124,15 @@ void createSemiOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_s
 
 int main() {
 
-	int arr_jump = 20;
-	int arr_min_size = 20;
-	int arr_max_size = 1000;
-	int arr_max_element = 10000;
+	int arr_jump = 2000;
+	int arr_min_size = 2000;
+	int arr_max_size = 100000;
+	int arr_max_element = 1000000;
 
-	createRandomArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);	
+//	createRandomArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);	
 	createOrderedArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);
-	createReverseOrderedArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);	
-	createSemiOrderedArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);
+//	createReverseOrderedArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);	
+//	createSemiOrderedArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);
 	return 0;
 
 }

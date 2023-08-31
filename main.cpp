@@ -7,7 +7,7 @@
 using namespace std;
 
 // Función para imprimir los arreglos
-void printArray(string algName, int arr[], int size)
+void print_array(string algName, int arr[], int size)
 {
    cout<<algName<<": "<<endl;
     int i;
@@ -20,7 +20,7 @@ void printArray(string algName, int arr[], int size)
 // Funcion que sirve para leer el dataset de arreglos que seran ordenados
 // recibe la ruta como parametro.
 // Fuente: elaboración propia basado en lo enseñado por Vicente Lermanda
-vector <vector<int>> readArrayDataset(string route){
+vector <vector<int>> read_dataset(string route){
 
   int size = 0;
   vector<vector<int>> arrays;
@@ -42,10 +42,11 @@ vector <vector<int>> readArrayDataset(string route){
 
 // Funcion que llama las funciones que toman el tiempo x veces y los guarda los resultados 
 //en un archivo de texto en la carpetga output, con el nombre "results.txt"
-void takeTime(int exp_x_array, vector< vector<int>> arrays, vector<int> positions){
+void take_time(int exp_x_array, vector< vector<int>> arrays, vector<int> positions){
 
-  int* temp_array;
+  vector<int> *temp_array;
   int temp_array_size;
+  int element;
   int position;
   boletin1 *busqueda = new boletin1();
 
@@ -60,29 +61,25 @@ void takeTime(int exp_x_array, vector< vector<int>> arrays, vector<int> position
   for(int k = 0; k<arrays.size(); k++){ 
 
     temp_array_size = arrays[k].size();
-    temp_array = new int[temp_array_size];
-
-    for(int i = 0; i<temp_array_size; i++){
-      temp_array[i] = arrays[k][i];
-    }
 
     // Para cada posición definida
-    for(int j = 0: j<positions.size(); j++){
+    for(int j = 0; j<positions.size(); j++){
 
-      position = positions[j];
+      position = temp_array_size/positions[j];
+      element = positions[position];
 
       // La busqueda se ejecuta el número de veces definido
       for(int i =0;i< exp_x_array;i++){
 
-        secuencial_time += busqueda->secuencial_time(temp_array, element);
-        binaria_time += busqueda->binaria_time(temp_array, element);
-        galopante_time += busqueda->galopante_time(temp_array, element);
+        secuencial_time += busqueda->secuencial_time(arrays[k], element);
+        binaria_time += busqueda->binaria_time(arrays[k], element);
+        galopante_time += busqueda->galopante_time(arrays[k], element);
         
       }
 
-      outfile << temp_array_size << "," << position << ",Bubble Sort,"<< secuencial_time/exp_x_array << endl;
-      outfile << temp_array_size << "," << position << ",Merge Sort,"<< binaria_time/exp_x_array << endl;
-      outfile << temp_array_size << "," << position << ",STL Sort,"<< galopante_time/exp_x_array << endl;
+      outfile << temp_array_size << "," << position << ",Secuencial,"<< secuencial_time/exp_x_array << endl;
+      outfile << temp_array_size << "," << position << ",Binaria,"<< binaria_time/exp_x_array << endl;
+      outfile << temp_array_size << "," << position << ",Galopante,"<< galopante_time/exp_x_array << endl;
 
     }
 
@@ -96,8 +93,10 @@ void takeTime(int exp_x_array, vector< vector<int>> arrays, vector<int> position
 
 int main(){
 
-  vector<vector<int>> arrays = readArrayDataset("datasets/random_array_dataset.txt");
-  takeSortingTime(10, arrays);
+  vector<vector<int>> arrays = read_dataset("datasets/ordered_array_dataset.txt");
+  vector<int> positions = {1,10,50,90,99}; //porcentaje de la posición
+
+  take_time(10, arrays, positions);
   return 0;
 
 }
