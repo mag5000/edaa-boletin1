@@ -61,29 +61,45 @@ int boletin1::busqueda_galopante(const vector<int> &arr, int element) {
 // Función que toma el tiempo de ejecución de la búsqueda secuencial
 long long boletin1::secuencial_time(const vector<int> &arr, int element){
 
+    int result;
     auto start_time = chrono::steady_clock::now();
-    busqueda_secuencial(arr, element);
+    result = busqueda_secuencial(arr, element);
     auto end_time = chrono::steady_clock::now();
     long long duration = chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();
+    
+    if(result==-1){
+      cout<<"Error en busqueda secuencial con elemento "<<element<<endl;
+    }
     return duration;
 }
 
 // Función que toma el tiempo de ejecución de la búsqueda binaria
 long long boletin1::binaria_time(const vector<int> &arr, int element){
 
+    int result;
     auto start_time = chrono::steady_clock::now();
-    busqueda_binaria(arr, 0, arr.size()-1, element);
+    result = busqueda_binaria(arr, 0, arr.size()-1, element);
     auto end_time = chrono::steady_clock::now();
     long long duration = chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();
+
+    if(result==-1){
+      cout<<"Error en búsqueda binaria con elemento "<<element<<endl;
+    }
+
     return duration;
 }
 
 // Funcion que toma el tiempor de ejecución de busqueda secuencial
 long long boletin1::galopante_time(const vector<int> &arr, int element){
 
+    int result;
     auto start_time = chrono::steady_clock::now();
-    busqueda_galopante(arr, element);
+    result = busqueda_galopante(arr, element);
     auto end_time = chrono::steady_clock::now();
     long long duration = chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time).count();
+    
+    if(result==-1){
+      cout<<"Error en busqueda galopante con elemento "<<element<<endl;
+    }
     return duration;
 }

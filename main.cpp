@@ -65,8 +65,10 @@ void take_time(int exp_x_array, vector< vector<int>> arrays, vector<int> positio
     // Para cada posición definida
     for(int j = 0; j<positions.size(); j++){
 
-      position = temp_array_size/positions[j];
-      element = positions[position];
+      double perc = positions[j]/100;
+      position = temp_array_size*perc;
+      cout<<"temp_array_size: "<<temp_array_size<<" y la posicion: "<<position<<endl;
+      element = arrays[k][position];
 
       // La busqueda se ejecuta el número de veces definido
       for(int i =0;i< exp_x_array;i++){
@@ -96,7 +98,7 @@ int main(){
   vector<vector<int>> arrays = read_dataset("datasets/ordered_array_dataset.txt");
   vector<int> positions = {1,10,50,90,99}; //porcentaje de la posición
 
-  take_time(10, arrays, positions);
+  take_time(50, arrays, positions);
   return 0;
 
 }

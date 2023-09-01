@@ -8,7 +8,7 @@ using namespace std;
 // Función encargada de crear el dataset de arreglos desordenados dados los parametros establecidos en el main.
 void createRandomArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
-	ofstream outfile("random_array_dataset.txt");
+	ofstream outfile("dataset/random_array_dataset.txt");
 	int size;
 	int element;
 	srand(time(NULL));
@@ -28,7 +28,7 @@ void createRandomArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, 
 // Función encargada de crear el dataset de arreglos ordenados dados los parametros establecidos en el main.
 void createOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
-	ofstream outfile("ordered_array_dataset.txt");
+	ofstream outfile("dataset/ordered_array_dataset.txt");
 	int size;
 	int element;
 	srand(time(NULL));
@@ -59,7 +59,7 @@ void createOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size,
 // parametros establecidos en el main.
 void createReverseOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
-	ofstream outfile("reverse_ordered_array_dataset.txt");
+	ofstream outfile("dataset/reverse_ordered_array_dataset.txt");
 	int size;
 	int element;
 	srand(time(NULL));
@@ -91,7 +91,7 @@ void createReverseOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_ma
 // ordena la mitad del arreglo desde una posición al azar (entre el inicio y la mitad).
 void createSemiOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
-	ofstream outfile("semi_ordered_array_dataset.txt");
+	ofstream outfile("dataset/semi_ordered_array_dataset.txt");
 	int size;
 	int element;
 	int ord_start;
@@ -124,9 +124,9 @@ void createSemiOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_s
 
 int main() {
 
-	int arr_jump = 2000;
-	int arr_min_size = 2000;
-	int arr_max_size = 100000;
+	int arr_jump = 200;
+	int arr_min_size = 200;
+	int arr_max_size = 10000;
 	int arr_max_element = 1000000;
 
 //	createRandomArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);	
