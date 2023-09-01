@@ -77,9 +77,9 @@ void take_time(int exp_x_array, vector< vector<int>> arrays, vector<int> positio
         
       }
 
-      outfile << temp_array_size << "," << position << ",Secuencial,"<< secuencial_time/exp_x_array << endl;
-      outfile << temp_array_size << "," << position << ",Binaria,"<< binaria_time/exp_x_array << endl;
-      outfile << temp_array_size << "," << position << ",Galopante,"<< galopante_time/exp_x_array << endl;
+      outfile << temp_array_size << "," << j << ",Secuencial,"<< secuencial_time/exp_x_array << endl;
+      outfile << temp_array_size << "," << j << ",Binaria,"<< binaria_time/exp_x_array << endl;
+      outfile << temp_array_size << "," << j << ",Galopante,"<< galopante_time/exp_x_array << endl;
 
     }
 
