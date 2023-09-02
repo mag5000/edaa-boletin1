@@ -34,7 +34,7 @@ void createOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size,
 	srand(time(NULL));
 	vector<int> temp_array;
 
-	for(int z=0;z<10;z++){
+	for(int z=0;z<30;z++){
 		for (int i = arr_min_size; i <= arr_max_size; i+=arr_jump){
 		  outfile << i <<endl;
 		
@@ -54,7 +54,6 @@ void createOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size,
 	      temp_array.clear();
 	  }
 	}
-
 
 	outfile.close();
 }
