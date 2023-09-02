@@ -28,30 +28,34 @@ void createRandomArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, 
 // Función encargada de crear el dataset de arreglos ordenados dados los parametros establecidos en el main.
 void createOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
-	ofstream outfile("dataset/ordered_array_dataset.txt");
+	ofstream outfile("ordered_array_dataset.txt");
 	int size;
 	int element;
 	srand(time(NULL));
 	vector<int> temp_array;
 
-	for (int i = arr_min_size; i <= arr_max_size; i+=arr_jump){
-	  outfile << i <<endl;
-	
-	  for (int k=0; k < i; k++){
-        element = rand()%arr_max_element;
-        temp_array.push_back(element);
-      }
+	for(int z=0;z<10;z++){
+		for (int i = arr_min_size; i <= arr_max_size; i+=arr_jump){
+		  outfile << i <<endl;
+		
+		  for (int k=0; k < i; k++){
+	        element = rand()%arr_max_element;
+	        temp_array.push_back(element);
+	      }
 
-      sort(temp_array.begin(), temp_array.end());
+	      sort(temp_array.begin(), temp_array.end());
 
-      for (int k=0; k < i; k++){
-        outfile << temp_array[k] <<" ";
-      
-      }
+	      for (int k=0; k < i; k++){
+	        outfile << temp_array[k] <<" ";
+	      
+	      }
 
-      outfile << endl;
-      temp_array.clear();
-    }
+	      outfile << endl;
+	      temp_array.clear();
+	  }
+	}
+
+
 	outfile.close();
 }
 
@@ -124,10 +128,10 @@ void createSemiOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_s
 
 int main() {
 
-	int arr_jump = 200;
-	int arr_min_size = 200;
-	int arr_max_size = 10000;
-	int arr_max_element = 1000000;
+	int arr_jump = 5000;
+	int arr_min_size = 5000;
+	int arr_max_size = 100000;
+	int arr_max_element = 10000000;
 
 //	createRandomArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);	
 	createOrderedArrayDataset(arr_jump, arr_min_size, arr_max_size, arr_max_element);

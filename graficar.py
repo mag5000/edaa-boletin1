@@ -2,7 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Cargar los datos desde un archivo CSV (o cualquier otro formato de datos)
-data = pd.read_csv("output/results.csv")
+original_data = pd.read_csv("output/results.csv")
+
+# Agrupar los datos por fila y calcular el promedio de tiempo
+data = original_data.groupby(original_data.columns.tolist(), as_index=False)['time'].mean()
 
 # Obtener valores únicos de "position"
 unique_positions = data['position'].unique()
@@ -32,6 +35,7 @@ for i, position in enumerate(unique_positions):
     ax.set_xlabel('Size')
     ax.set_ylabel('Time (log scale)')  # Cambio del etiquetado en el eje y
     ax.set_yscale('log')  # Cambio de escala logarítmica en el eje y
+    # ax.set_xscale('log')  # Cambio de escala logarítmica en el eje x
     ax.legend()
 
 # Ajustar los espacios entre los gráficos y las etiquetas de los ejes

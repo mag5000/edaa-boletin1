@@ -36,20 +36,22 @@ int boletin1::busqueda_binaria(const vector<int> &arr, int left, int right, int 
     return -1;
 }
 
-// Busqueda Lineal: busca un elemento en un arreglo ordenado comparando el elemento con la mitad del arreglo
+// Busqueda galopante: busca un elemento en un arreglo ordenado. Para lograr esto se busca  primero en la posición 0, luego en las posiciones  
+// 1, 2, 4, 8, 16.. duplicando cada vez el salto hasta encontrar el elemento o encontrar uno mayor, en cuyo caso se utiliza 
+// busqueda binaria para encontrar el elemento en el rango definido.
 int boletin1::busqueda_galopante(const vector<int> &arr, int element) {
-    int size = arr.size();
+    int size = arr.size()-1;
     int jump = 1; // Tamaño del salto
     int left = 0;
     int position = 0;
 
     // Se realizan saltos hasta que el elemento sea menor al valor encontrado en el salto
-    while (arr[min(position, size)] < element) {
+    while (arr[position] < element) {
         if (left >= size) {
             return -1; // No se encontró el elemento
         }
         left=position;
-        position=position+jump;
+        position=min(position+jump,size);
         jump=jump*2;
     }
     // Finalmente se realiza una búsqueda binaria en el rango encontrado
